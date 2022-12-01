@@ -24,11 +24,18 @@ def home():
     def va_prediction(comment):
       big_comment = comment.lower()
       my_comment = pd.Series(big_comment)
+      string_check = string_break(big_comment)
+      big_counter = 0
+      for x in string_check:
+        if x == "not":
+          big_counter += 1     
       big_predict = clf.predict(count_vect.transform(my_comment))
       check_comment = string_break(big_comment)
       token_input = string_break(comment)
       a = big_predict.tolist()
       final_prediction = a[0]
+      if big_counter > 0:
+        final_prediction = "negative"
 
       staff = ["staff","desk","doctors","nurse","doctor"]
       facility = ["bathrooms", "bathroom", "dirty","clean","filthy","sanitary"]
