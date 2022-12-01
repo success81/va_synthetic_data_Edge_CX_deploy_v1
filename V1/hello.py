@@ -2,8 +2,8 @@ from flask import Flask, render_template, request
 import pandas as pd
 import pickle
 my_punct = {'=', '-', '/', '{', '#', '"', '(', '@', '$', '`', ',', ')', '+', '?', '.', '|', '}', '[', '_', '^', ';', '%', '&', '<', '>', ':', '\\', '~', '*', '!', ']',"1","2","3","4","5","6","7","8","9","0"}
-clf = pickle.load(open('synth_datav1.pkl','rb'))
-count_vect = pickle.load(open('countvector.pkl','rb'))
+clf = pickle.load(open('gradient_synth_data','rb'))
+count_vect = pickle.load(open('gradient_countvector','rb'))
 
 app = Flask(__name__)
 
